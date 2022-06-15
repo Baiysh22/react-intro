@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import List from './components/List/List';
@@ -6,7 +6,7 @@ import List from './components/List/List';
 const App = () => {
   const str = "Hello react";
   const logo = "https://pngimg.com/uploads/tesla_logo/tesla_logo_PNG21.png";
-  const cars = [
+  const init_cars = [
     {
       model: "Model S",
       image:
@@ -31,11 +31,34 @@ const App = () => {
       id: 4,
     },
   ];
+  const [cars,setCars] = useState(init_cars);
+
+  // let counter = 0;
+  // function increment (){
+  //   counter++;
+  //   console.log(counter);
+  // }
+  // function decrement (){
+  //   counter--;
+  //   console.log(counter);
+  // }
+  // useState
+  // const myHook = useState(null);
+  // console.log(myHook);
+
+  const [state, setState] = useState(0);
+  // console.log(state);
   return (
     <div>
-     <Header logo={logo} name={"bpni"} age={28} />
+      {/* <button onClick={()=>decrement()} >-</button>
+      <span>{counter}</span>
+      <button onClick={()=> increment()} >+</button> */}
+     <Header cars={cars} logo={logo} name={"boni"} age={28} />
      <List cars={cars} />
      <Footer />
+      {/* <button onClick={()=>setState(state - 1)} >-</button>
+      <span>{state}</span>
+      <button onClick={()=>setState(state + 1)} >+</button> */}
     </div>
   );
 };

@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '../Card/Card';
 
 const List = ({ cars }) => {
-  console.log(cars);
+  const[activeCard, setActiveCard] = useState("")
+  console.log(activeCard);
+  // console.log(cars);
   return (
     <div style={{display:"flex", flexDirection:"column",alignItems:"center"}}>
-      {cars.map((item)=> (<Card key={item.id} item={item} />))}
+      {cars.map((item)=> (
+      <Card key={item.id} item={item} 
+      activeCard={activeCard} 
+      setActiveCard={setActiveCard} />))}
     </div>
   );
 };
